@@ -7,8 +7,9 @@ cloudinary.config({
     api_secret: process.env.CLOUDINARY_API_SECRET // Click 'View API Keys' above to copy your API secret
 });
 
-
+console.log("gibrish",process.env.CLOUDINARY_API_KEY)
 const uploadCloudinary= async (localFilePath)=>{
+    
     try {
         if (!localFilePath) return null
 
@@ -16,9 +17,11 @@ const uploadCloudinary= async (localFilePath)=>{
             resource_type: "auto"
         })
         fs.unlinkSync(localFilePath)
+        
         return response;
 
     } catch (error) {
+        console.log(error)
         fs.unlinkSync(localFilePath) // remove the locally saved temporary file as the upload operation got failed
         return null;
     }

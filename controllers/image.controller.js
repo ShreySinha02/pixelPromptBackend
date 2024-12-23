@@ -11,8 +11,8 @@ const getImage =asyncHandler(async (req,res)=>{
     const result= await getImageHf(prompt)
     const imageUrl=await uploadCloudinary(result)
 
-    console.log("local file path",result)
-
+    // console.log("local file path",result)
+    // console.log(imageUrl)
     const image= await Image.create({
         url:imageUrl.url,
         prompt,
